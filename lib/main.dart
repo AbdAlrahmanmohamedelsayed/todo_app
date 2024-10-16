@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:todo_app/core/config/app_Routter.dart';
+import 'package:todo_app/core/config/page_routes_name.dart';
 import 'package:todo_app/core/theme/applecation_theme_manager.dart';
 
 void main() {
@@ -14,7 +16,8 @@ class MyApp extends StatelessWidget {
       debugShowCheckedModeBanner: false,
       title: 'Todo App Route',
       theme: AoolecationThemeManager.lightThemeData,
-      home: Scaffold(),
+      initialRoute: PageRoutesName.initial,
+      onGenerateRoute: AppRoutter.onGenerateRoute,
     );
   }
 }
