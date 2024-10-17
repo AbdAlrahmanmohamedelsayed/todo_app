@@ -16,7 +16,7 @@ class _SplashViewState extends State<SplashView> {
     Future.delayed(
       Duration(seconds: 3),
       () {
-        Navigator.pushReplacementNamed(context, PageRoutesName.login);
+        Navigator.pushReplacementNamed(context, PageRoutesName.onboard);
       },
     );
     super.initState();
@@ -24,11 +24,30 @@ class _SplashViewState extends State<SplashView> {
 
   @override
   Widget build(BuildContext context) {
+    var theme = Theme.of(context);
     return Container(
       color: ColorPallets.backGroundColorLight,
-      child: FadeInDown(
-          delay: const Duration(seconds: 1),
-          child: Image.asset('assets/images/logo.png')),
+      child: Column(
+        mainAxisAlignment: MainAxisAlignment.center,
+        children: [
+          FadeInDown(
+              delay: const Duration(seconds: 1),
+              child: Image.asset('assets/images/logo.png')),
+          const SizedBox(
+            height: 10,
+          ),
+          FadeInUp(
+            delay: const Duration(seconds: 2),
+            child: Text(
+              'Todo',
+              style: theme.textTheme.bodyMedium?.copyWith(
+                  fontSize: 34,
+                  color: ColorPallets.primaryColor,
+                  fontWeight: FontWeight.bold),
+            ),
+          )
+        ],
+      ),
     );
   }
 }
